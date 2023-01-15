@@ -100,7 +100,7 @@ QPushButton:hover {
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_jopa">
+   <widget class="QPushButton" name="pushButton_impossible">
     <property name="geometry">
      <rect>
       <x>70</x>

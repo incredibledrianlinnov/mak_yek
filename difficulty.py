@@ -58,10 +58,10 @@ class Ui_MainWindow(object):
 " }")
         self.pushButton_hard.setText("")
         self.pushButton_hard.setObjectName("pushButton_hard")
-        self.pushButton_jopa = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_jopa.setGeometry(QtCore.QRect(70, 170, 170, 60))
-        self.pushButton_jopa.setMinimumSize(QtCore.QSize(170, 60))
-        self.pushButton_jopa.setStyleSheet("QPushButton {\n"
+        self.pushButton_impossible = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_impossible.setGeometry(QtCore.QRect(70, 170, 170, 60))
+        self.pushButton_impossible.setMinimumSize(QtCore.QSize(170, 60))
+        self.pushButton_impossible.setStyleSheet("QPushButton {\n"
 "    background-image: url(:/background/dif_4.png) stretch;\n"
 "    background-color: rgb(224, 205, 200);\n"
 "}\n"
@@ -69,8 +69,8 @@ class Ui_MainWindow(object):
 "    background-color: rgb(224, 205, 200);\n"
 "    background-image: url(:/background/dif_4_sec.png);\n"
 " }")
-        self.pushButton_jopa.setText("")
-        self.pushButton_jopa.setObjectName("pushButton_jopa")
+        self.pushButton_impossible.setText("")
+        self.pushButton_impossible.setObjectName("pushButton_impossible")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(40, 260, 231, 21))
         font = QtGui.QFont()

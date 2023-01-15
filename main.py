@@ -2,14 +2,17 @@ import sys
 from hashlib import sha256
 import json
 import os
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QMessageBox
 
 from models.board import FigureType
 from game import Game
 from registration import Ui_MainWindow as reg_window
 from user import Ui_MainWindow as private_window
+from difficulty import Ui_MainWindow as difficulty_window
 import pygame
+#include <QHoverEvent>
+#include <QGraphicsSceneHoverEvent>
 
 import checkers_bot_cpp as Game_AI
 
@@ -41,27 +44,55 @@ def init_authorization():
     return main_window, ui
 
 
+def start_play(user, depth):
+    chose_window.hide()
+    play_and_save(user, DEFAULT_POSITION, True, depth)
+
+
 def log_in(user):
     authorization_window.hide()
-    lk_window.setWindowTitle(user['username'])
     lk_ui.label_account_name.setText(user['username'])
     lk_ui.wins.setText(str(user['wins']))
     lk_ui.loses.setText(str(user['loses']))
     lk_ui.pushButton_old.setEnabled(bool(user['current_game']))
 
-    def play_friend():
-        play(DEFAULT_POSITION, False)
+    chose_ui.pushButton_easy.clicked.connect(lambda: start_play(user,0))
+    chose_ui.pushButton_normal.clicked.connect(lambda: start_play(user,2))
+    chose_ui.pushButton_hard.clicked.connect(lambda: start_play(user,3))
+    chose_ui.pushButton_impossible.clicked.connect(lambda: start_play(user,6))
 
-    def play_AI():
-        play(DEFAULT_POSITION, True)
+    chose_ui.pushButton_easy.enterEvent = lambda _: chose_ui.label.setText("Котёнок!")
+    chose_ui.pushButton_easy.leaveEvent = lambda _: chose_ui.label.setText("")
+    chose_ui.pushButton_normal.enterEvent = lambda _: chose_ui.label.setText("Молодой котик")
+    chose_ui.pushButton_normal.leaveEvent = lambda _: chose_ui.label.setText("")
+    chose_ui.pushButton_hard.enterEvent = lambda _: chose_ui.label.setText("Кот учёный")
+    chose_ui.pushButton_hard.leaveEvent = lambda _: chose_ui.label.setText("")
+    chose_ui.pushButton_impossible.enterEvent = lambda _: chose_ui.label.setText("Мегамозг")
+    chose_ui.pushButton_impossible.leaveEvent = lambda _: chose_ui.label.setText("")
 
-    def continue_game():
-        play(user['current_game'], user['current_game_mode'] == 'AI')
 
-    lk_ui.pushButton_new_game_friend.clicked.connect(play_friend)
-    lk_ui.pushButton_new_game_ai.clicked.connect(play_AI)
-    lk_ui.pushButton_old.clicked.connect(continue_game)
+    lk_ui.pushButton_new_game_friend.clicked.connect(lambda: play_and_save(user, DEFAULT_POSITION, False))
+    lk_ui.pushButton_new_game_ai.clicked.connect(lambda: chose_window.show())
+    lk_ui.pushButton_old.clicked.connect(
+        lambda: play_and_save(user, user['current_game']['position'], user['current_game']['AI'],
+                              user['current_game']['depth'], user['current_game']['turn']))
     lk_window.show()
+
+
+def play_and_save(user, position, AI, depth=None, turn=0):
+    result = play(position, AI, depth, turn)
+    user['current_game'] = result
+    update_user(user)
+    lk_ui.pushButton_old.setEnabled(bool(user['current_game']))
+
+
+def update_user(user):
+    users = get_users()
+    for i in range(len(users)):
+        if users[i]['username'] == user['username']:
+            users[i] = user
+    with open('users.json', "w", encoding='utf-8') as file:
+        json.dump(users, file)
 
 
 def log_out():
@@ -132,8 +163,7 @@ def create_user(username: str, password: str) -> dict:
         'password': sha256(password.encode('utf-8')).hexdigest(),
         'wins': 0,
         'loses': 0,
-        'current_game': None,
-        'current_game_mode': 'AI'
+        'current_game': None
     }
     users = get_users()
     users.append(user)
@@ -151,8 +181,20 @@ def get_users():
         return []
 
 
-def play(position: str, AI: bool):
+def init_difficulty():
+    main_window = QtWidgets.QMainWindow()
+    ui = difficulty_window()
+    ui.setupUi(main_window)
+    return main_window, ui
+
+
+def play(position: str, AI: bool, depth=None, turn=0):
+    result = {
+        'AI': AI,
+        'depth': depth
+    }
     game = Game(position)
+    game.board.turn = turn
 
     cell_size = 80
     background = pygame.image.load('images/back.png')
@@ -175,7 +217,6 @@ def play(position: str, AI: bool):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-                pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 in_game_pos = (pos[0] // cell_size, pos[1] // cell_size)
@@ -194,8 +235,8 @@ def play(position: str, AI: bool):
                     if move:
                         game.move(move)
                         if AI:
-                            game.ai_move(Game_AI.get_best_move_position(game.board.to_string(True), 7),
-                                         True)  # TODO change to ne 10
+                            game.ai_move(Game_AI.get_best_move_position(game.board.to_string(True), depth),
+                                         True)
                     selected = None
                     moves = []
 
@@ -215,10 +256,15 @@ def play(position: str, AI: bool):
             screen.blit(move_img, (move.position_to[0] * cell_size, move.position_to[1] * cell_size))
 
         pygame.display.update()
+    pygame.quit()
+    result['position'] = game.board.to_string()
+    result['turn'] = game.board.turn
+    return result
 
 
 app = QtWidgets.QApplication(sys.argv)
 authorization_window, authorization_ui = init_authorization()
 lk_window, lk_ui = init_private()
+chose_window, chose_ui = init_difficulty()
 authorization_window.show()
 sys.exit(app.exec())
