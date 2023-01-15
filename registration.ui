@@ -40,7 +40,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	 background-image: url(:/background/back_reg.png)
+	 background-image: url(:/background/images/back_reg.png)
 	}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -65,7 +65,7 @@
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
-	background-image: url(:/background/sing_in.png);
+	background-image: url(:/background/images/sing_in.png);
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);
@@ -184,7 +184,7 @@ QPushButton:hover {
      <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
 	
-	background-image: url(:/background/sing_up.png);
+	background-image: url(:/background/images/sing_up.png);
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);

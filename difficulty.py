@@ -18,19 +18,19 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(310, 310))
         MainWindow.setMaximumSize(QtCore.QSize(310, 310))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"     background-image: url(:/background/dif_back.png)\n"
+"     background-image:  url(:/background/images//dif_back.png)\n"
 "    }")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton_easy = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_easy.setGeometry(QtCore.QRect(20, 80, 71, 71))
         self.pushButton_easy.setStyleSheet("QPushButton {\n"
-"    background-image: url(:/background/dif_1.png);\n"
+"    background-image: url(:/background/images/dif_1.png);\n"
 "    background-color: rgb(224, 205, 200);\n"
 "}\n"
 "QPushButton:hover {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_1_sec.png);\n"
+"    background-image:  url(:/background/images/dif_1_sec.png);\n"
 " }")
         self.pushButton_easy.setText("")
         self.pushButton_easy.setObjectName("pushButton_easy")
@@ -38,11 +38,11 @@ class Ui_MainWindow(object):
         self.pushButton_normal.setGeometry(QtCore.QRect(120, 80, 71, 71))
         self.pushButton_normal.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_2.png);\n"
+"    background-image:  url(:/background/images/dif_2.png);\n"
 "}\n"
 "QPushButton:hover {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_2_sec.png)\n"
+"    background-image: url(:/background/images/dif_2_sec.png)\n"
 " }")
         self.pushButton_normal.setText("")
         self.pushButton_normal.setObjectName("pushButton_normal")
@@ -50,11 +50,11 @@ class Ui_MainWindow(object):
         self.pushButton_hard.setGeometry(QtCore.QRect(220, 80, 71, 71))
         self.pushButton_hard.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_3.png)\n"
+"    background-image:  url(:/background/images/dif_3.png)\n"
 "}\n"
 "QPushButton:hover {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_3_sec.png);\n"
+"    background-image:  url(:/background/images/dif_3_sec.png);\n"
 " }")
         self.pushButton_hard.setText("")
         self.pushButton_hard.setObjectName("pushButton_hard")
@@ -62,12 +62,12 @@ class Ui_MainWindow(object):
         self.pushButton_impossible.setGeometry(QtCore.QRect(70, 170, 170, 60))
         self.pushButton_impossible.setMinimumSize(QtCore.QSize(170, 60))
         self.pushButton_impossible.setStyleSheet("QPushButton {\n"
-"    background-image: url(:/background/dif_4.png) stretch;\n"
+"    background-image: url(:/background/images/dif_4.png) stretch;\n"
 "    background-color: rgb(224, 205, 200);\n"
 "}\n"
 "QPushButton:hover {\n"
 "    background-color: rgb(224, 205, 200);\n"
-"    background-image: url(:/background/dif_4_sec.png);\n"
+"    background-image: url(:/background/images/dif_4_sec.png);\n"
 " }")
         self.pushButton_impossible.setText("")
         self.pushButton_impossible.setObjectName("pushButton_impossible")
@@ -92,6 +92,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Сложность"))
+        self.pushButton_easy.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic; color:#422e29;\">Глубина - </span><span style=\" font-size:10pt; font-style:italic; color:#422e29;\">0</span></p></body></html>"))
+        self.pushButton_normal.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic; color:#422e29;\">Глубина - 2</span></p></body></html>"))
+        self.pushButton_hard.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic; color:#422e29;\">Глубина - 3</span></p></body></html>"))
+        self.pushButton_impossible.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic; color:#d40000;\">Глубина - 6</span></p></body></html>"))
 import back_reg
 
 

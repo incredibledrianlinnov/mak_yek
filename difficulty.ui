@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	 background-image: url(:/background/dif_back.png)
+	 background-image:  url(:/background/images//dif_back.png)
 	}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -40,14 +40,17 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#422e29;&quot;&gt;Глубина - &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#422e29;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-image: url(:/background/dif_1.png);
+    background-image: url(:/background/images/dif_1.png);
 	background-color: rgb(224, 205, 200);
 }
 QPushButton:hover {
     background-color: rgb(224, 205, 200);
-	background-image: url(:/background/dif_1_sec.png);
+	background-image:  url(:/background/images/dif_1_sec.png);
  }</string>
     </property>
     <property name="text">
@@ -63,14 +66,17 @@ QPushButton:hover {
       <height>71</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#422e29;&quot;&gt;Глубина - 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
     background-color: rgb(224, 205, 200);
-	background-image: url(:/background/dif_2.png);
+	background-image:  url(:/background/images/dif_2.png);
 }
 QPushButton:hover {
     background-color: rgb(224, 205, 200);
-	background-image: url(:/background/dif_2_sec.png)
+	background-image: url(:/background/images/dif_2_sec.png)
  }</string>
     </property>
     <property name="text">
@@ -86,14 +92,17 @@ QPushButton:hover {
       <height>71</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#422e29;&quot;&gt;Глубина - 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(224, 205, 200);
-    background-image: url(:/background/dif_3.png)
+    background-image:  url(:/background/images/dif_3.png)
 }
 QPushButton:hover {
     background-color: rgb(224, 205, 200);
-	background-image: url(:/background/dif_3_sec.png);
+	background-image:  url(:/background/images/dif_3_sec.png);
  }</string>
     </property>
     <property name="text">
@@ -115,14 +124,17 @@ QPushButton:hover {
       <height>60</height>
      </size>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#d40000;&quot;&gt;Глубина - 6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-image: url(:/background/dif_4.png) stretch;
+    background-image: url(:/background/images/dif_4.png) stretch;
 	background-color: rgb(224, 205, 200);
 }
 QPushButton:hover {
     background-color: rgb(224, 205, 200);
-	background-image: url(:/background/dif_4_sec.png);
+	background-image: url(:/background/images/dif_4_sec.png);
  }</string>
     </property>
     <property name="text">

@@ -1,21 +1,27 @@
 <RCC>
   <qresource prefix="background">
-    <file>dif_4.png</file>
-    <file>dif_4_sec.png</file>
-    <file>dif_3_sec.png</file>
-    <file>dif_3.png</file>
-    <file>dif_2_sec.png</file>
-    <file>dif_2.png</file>
-    <file>dif_1_sec.png</file>
-    <file>dif_1.png</file>
-    <file>dif_back.png</file>
-    <file>exit.png</file>
-    <file>play_recent.png</file>
-    <file>play_friend.png</file>
-    <file>play_bot.png</file>
-    <file>back_pers.png</file>
-    <file>sing_up.png</file>
-    <file>sing_in.png</file>
-    <file>back_reg.png</file>
+    <file>images/back.png</file>
+    <file>images/back_pers.png</file>
+    <file>images/back_reg.png</file>
+    <file>images/Black.png</file>
+    <file>images/BlackQueen.png</file>
+    <file>images/dif_1.png</file>
+    <file>images/dif_1_sec.png</file>
+    <file>images/dif_2.png</file>
+    <file>images/dif_2_sec.png</file>
+    <file>images/dif_3.png</file>
+    <file>images/dif_3_sec.png</file>
+    <file>images/dif_4.png</file>
+    <file>images/dif_4_sec.png</file>
+    <file>images/dif_back.png</file>
+    <file>images/exit.png</file>
+    <file>images/move.png</file>
+    <file>images/play_bot.png</file>
+    <file>images/play_friend.png</file>
+    <file>images/play_recent.png</file>
+    <file>images/sing_in.png</file>
+    <file>images/sing_up.png</file>
+    <file>images/White.png</file>
+    <file>images/WhiteQueen.png</file>
   </qresource>
 </RCC>

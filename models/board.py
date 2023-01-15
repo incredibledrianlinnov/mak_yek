@@ -286,3 +286,20 @@ class Board:
         if mirror:
             return result[::-1].replace('p', 'r').replace('q', 't').replace('P', 'p').replace('Q', 'q').replace('r', 'P').replace('t', 'Q')
         return result
+
+    def get_winner(self):
+        count_black = 0
+        count_white = 0
+        for i in range(32):
+            pos = i * 2 + (i // 4 + 1) % 2
+            y = pos // 8
+            x = pos % 8
+            if self.board[x][y] == FigureType.Black or self.board[x][y] == FigureType.BlackQueen:
+                count_black += 1
+            elif self.board[x][y] == FigureType.White or self.board[x][y] == FigureType.WhiteQueen:
+                count_white += 1
+        if count_black == 0:
+            return 'white'
+        if count_white == 0:
+            return 'black'
+        return None

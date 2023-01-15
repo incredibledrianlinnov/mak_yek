@@ -1,2 +1,0 @@
-# mak_yek
- checkers

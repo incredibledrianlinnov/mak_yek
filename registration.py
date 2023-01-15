@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         MainWindow.setMouseTracking(False)
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"     background-image: url(:/background/back_reg.png)\n"
+"     background-image: url(:/background/images/back_reg.png)\n"
 "    }")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
-"    background-image: url(:/background/sing_in.png);\n"
+"    background-image: url(:/background/images/sing_in.png);\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
         self.pushButton_reg.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
 "    \n"
-"    background-image: url(:/background/sing_up.png);\n"
+"    background-image: url(:/background/images/sing_up.png);\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"

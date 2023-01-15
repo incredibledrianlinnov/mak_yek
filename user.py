@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(620, 620))
         MainWindow.setMaximumSize(QtCore.QSize(620, 620))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"     background-image: url(:/background/back_pers.png)\n"
+"     background-image:url(:/background/images/back_pers.png)\n"
 "    }")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.pushButton_exit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_exit.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
-"    background-image: url(:/background/exit.png)\n"
+"    background-image: url(:/background/images/exit.png)\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.pushButton_exit.setText("")
         self.pushButton_exit.setObjectName("pushButton_exit")
         self.label_account_name = QtWidgets.QLabel(self.centralwidget)
-        self.label_account_name.setGeometry(QtCore.QRect(20, 110, 141, 27))
+        self.label_account_name.setGeometry(QtCore.QRect(40, 100, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Segoe Script")
         font.setPointSize(12)
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         font.setKerning(True)
         self.label_account_name.setFont(font)
-        self.label_account_name.setStyleSheet("color:rgb(90, 108, 157)")
+        self.label_account_name.setStyleSheet("color:rgb(66, 46, 41)")
         self.label_account_name.setText("")
         self.label_account_name.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label_account_name.setObjectName("label_account_name")
@@ -61,6 +61,7 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe Print")
         font.setPointSize(12)
         self.wins.setFont(font)
+        self.wins.setStyleSheet("color:rgb(66, 46, 41)")
         self.wins.setText("")
         self.wins.setObjectName("wins")
         self.loses = QtWidgets.QLabel(self.centralwidget)
@@ -69,15 +70,16 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe Print")
         font.setPointSize(12)
         self.loses.setFont(font)
+        self.loses.setStyleSheet("color:rgb(66, 46, 41)")
         self.loses.setText("")
         self.loses.setObjectName("loses")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(160, 130, 301, 281))
-        self.widget.setObjectName("widget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(160, 130, 301, 281))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.pushButton_new_game_ai = QtWidgets.QPushButton(self.widget)
+        self.pushButton_new_game_ai = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_new_game_ai.setMaximumSize(QtCore.QSize(300, 70))
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -86,7 +88,7 @@ class Ui_MainWindow(object):
         self.pushButton_new_game_ai.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_new_game_ai.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
-"    background-image: url(:/background/play_bot.png)\n"
+"    background-image: url(:/background/images/play_bot.png)\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"
@@ -94,7 +96,7 @@ class Ui_MainWindow(object):
         self.pushButton_new_game_ai.setText("")
         self.pushButton_new_game_ai.setObjectName("pushButton_new_game_ai")
         self.verticalLayout.addWidget(self.pushButton_new_game_ai)
-        self.pushButton_new_game_friend = QtWidgets.QPushButton(self.widget)
+        self.pushButton_new_game_friend = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_new_game_friend.setMaximumSize(QtCore.QSize(300, 70))
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -103,7 +105,7 @@ class Ui_MainWindow(object):
         self.pushButton_new_game_friend.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_new_game_friend.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
-"    background-image: url(:/background/play_friend.png)\n"
+"    background-image: url(:/background/images/play_friend.png)\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"
@@ -111,7 +113,7 @@ class Ui_MainWindow(object):
         self.pushButton_new_game_friend.setText("")
         self.pushButton_new_game_friend.setObjectName("pushButton_new_game_friend")
         self.verticalLayout.addWidget(self.pushButton_new_game_friend)
-        self.pushButton_old = QtWidgets.QPushButton(self.widget)
+        self.pushButton_old = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_old.setMaximumSize(QtCore.QSize(300, 70))
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -120,7 +122,7 @@ class Ui_MainWindow(object):
         self.pushButton_old.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_old.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(192, 165, 157);\n"
-"    background-image: url(:/background/play_recent.png)\n"
+"    background-image: url(:/background/images/play_recent.png)\n"
 " }\n"
 "QPushButton:hover {\n"
 "     background-color:rgb(255, 237, 221);\n"

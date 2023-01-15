@@ -2,7 +2,7 @@ import sys
 from hashlib import sha256
 import json
 import os
-from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QMessageBox
 
 from models.board import FigureType
@@ -24,6 +24,9 @@ def init_private():
     ui = private_window()
     ui.setupUi(main_window)
     ui.pushButton_exit.clicked.connect(log_out)
+    icon = QtGui.QIcon()
+    icon.addPixmap(QtGui.QPixmap('images/WhiteQueen.png'), QtGui.QIcon.Selected, QtGui.QIcon.On)
+    main_window.setWindowIcon(icon)
     return main_window, ui
 
 
@@ -38,6 +41,9 @@ def init_authorization():
     main_window = QtWidgets.QMainWindow()
     ui = reg_window()
     ui.setupUi(main_window)
+    icon = QtGui.QIcon()
+    icon.addPixmap(QtGui.QPixmap('images/WhiteQueen.png'), QtGui.QIcon.Selected, QtGui.QIcon.On)
+    main_window.setWindowIcon(icon)
     ui.pushButton.clicked.connect(authorization)
     ui.pushButton_reg.clicked.connect(register)
     ui.checkBox.stateChanged.connect(show_hide)
@@ -51,10 +57,7 @@ def start_play(user, depth):
 
 def log_in(user):
     authorization_window.hide()
-    lk_ui.label_account_name.setText(user['username'])
-    lk_ui.wins.setText(str(user['wins']))
-    lk_ui.loses.setText(str(user['loses']))
-    lk_ui.pushButton_old.setEnabled(bool(user['current_game']))
+    update_form_log_in(user)
 
     chose_ui.pushButton_easy.clicked.connect(lambda: start_play(user,0))
     chose_ui.pushButton_normal.clicked.connect(lambda: start_play(user,2))
@@ -78,13 +81,25 @@ def log_in(user):
                               user['current_game']['depth'], user['current_game']['turn']))
     lk_window.show()
 
+def update_form_log_in(user):
+    lk_ui.label_account_name.setText(user['username'])
+    lk_ui.wins.setText(str(user['wins']))
+    lk_ui.loses.setText(str(user['loses']))
+    lk_ui.pushButton_old.setEnabled(bool(user['current_game']))
 
 def play_and_save(user, position, AI, depth=None, turn=0):
     result = play(position, AI, depth, turn)
-    user['current_game'] = result
+    if 'winner' in result and result['winner'] is not None:
+        user['current_game'] = None
+        if result['AI']:
+            if result['winner'] == 'white':
+                user['wins'] += 1
+            else:
+                user['loses'] += 1
+    else:
+        user['current_game'] = result
+    update_form_log_in(user)
     update_user(user)
-    lk_ui.pushButton_old.setEnabled(bool(user['current_game']))
-
 
 def update_user(user):
     users = get_users()
@@ -185,6 +200,9 @@ def init_difficulty():
     main_window = QtWidgets.QMainWindow()
     ui = difficulty_window()
     ui.setupUi(main_window)
+    icon = QtGui.QIcon()
+    icon.addPixmap(QtGui.QPixmap('images/WhiteQueen.png'), QtGui.QIcon.Selected, QtGui.QIcon.On)
+    main_window.setWindowIcon(icon)
     return main_window, ui
 
 
@@ -208,6 +226,8 @@ def play(position: str, AI: bool, depth=None, turn=0):
 
     pygame.init()
     screen = pygame.display.set_mode([640, 640])
+    pygame.display.set_caption('Мак Йек')
+    pygame.display.set_icon(white_queen)
     running = True
 
     selected = None
@@ -237,6 +257,13 @@ def play(position: str, AI: bool, depth=None, turn=0):
                         if AI:
                             game.ai_move(Game_AI.get_best_move_position(game.board.to_string(True), depth),
                                          True)
+                        winner = game.board.get_winner()
+                        if winner is not None:
+                            message = QMessageBox()
+                            message.setWindowTitle("Конец игры!")
+                            message.setText("Победитель - " + ("белые" if winner == 'white' else "черные"))
+                            message.exec()
+
                     selected = None
                     moves = []
 
@@ -259,6 +286,7 @@ def play(position: str, AI: bool, depth=None, turn=0):
     pygame.quit()
     result['position'] = game.board.to_string()
     result['turn'] = game.board.turn
+    result['winner'] = game.board.get_winner()
     return result
 
 

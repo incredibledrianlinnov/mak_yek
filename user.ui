@@ -30,7 +30,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	 background-image: url(:/background/back_pers.png)
+	 background-image:url(:/background/images/back_pers.png)
 	}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -67,7 +67,7 @@
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
-	background-image: url(:/background/exit.png)
+	background-image: url(:/background/images/exit.png)
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);
@@ -80,8 +80,8 @@ QPushButton:hover {
    <widget class="QLabel" name="label_account_name">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>110</y>
+      <x>40</x>
+      <y>100</y>
       <width>141</width>
       <height>27</height>
      </rect>
@@ -97,7 +97,7 @@ QPushButton:hover {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:rgb(90, 108, 157)</string>
+     <string notr="true">color:rgb(66, 46, 41)</string>
     </property>
     <property name="text">
      <string notr="true"/>
@@ -121,6 +121,9 @@ QPushButton:hover {
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(66, 46, 41)</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -140,11 +143,14 @@ QPushButton:hover {
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(66, 46, 41)</string>
+    </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -174,7 +180,7 @@ QPushButton:hover {
        <property name="styleSheet">
         <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
-	background-image: url(:/background/play_bot.png)
+	background-image: url(:/background/images/play_bot.png)
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);
@@ -205,7 +211,7 @@ QPushButton:hover {
        <property name="styleSheet">
         <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
-	background-image: url(:/background/play_friend.png)
+	background-image: url(:/background/images/play_friend.png)
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);
@@ -236,7 +242,7 @@ QPushButton:hover {
        <property name="styleSheet">
         <string notr="true">QPushButton {
 	background-color: rgb(192, 165, 157);
-	background-image: url(:/background/play_recent.png)
+	background-image: url(:/background/images/play_recent.png)
  }
 QPushButton:hover {
      background-color:rgb(255, 237, 221);
