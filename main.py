@@ -11,8 +11,7 @@ from registration import Ui_MainWindow as reg_window
 from user import Ui_MainWindow as private_window
 from difficulty import Ui_MainWindow as difficulty_window
 import pygame
-#include <QHoverEvent>
-#include <QGraphicsSceneHoverEvent>
+
 
 import checkers_bot_cpp as Game_AI
 
