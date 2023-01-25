@@ -1,0 +1,9 @@
+users.json
+**/__pycache__/
+**/build/
+dist/
+**/.vs/
+**/.idea/
+PythonApplication1/x64/
+PythonApplication1/Cpp/x64/
+**/UpgradeLog.htm
